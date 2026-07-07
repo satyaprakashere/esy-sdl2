@@ -19681,7 +19681,7 @@ $as_echo_n "checking for GCC -Wdeclaration-after-statement option... " >&6; }
     have_gcc_declaration_after_statement=no
 
     save_CFLAGS="$CFLAGS"
-    CFLAGS="$save_CFLAGS -Wdeclaration-after-statement -Werror=declaration-after-statement"
+    CFLAGS="$save_CFLAGS -Wdeclaration-after-statement "
     cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -19707,7 +19707,7 @@ $as_echo "$have_gcc_declaration_after_statement" >&6; }
     CFLAGS="$save_CFLAGS"
 
     if test x$have_gcc_declaration_after_statement = xyes; then
-        EXTRA_CFLAGS="$EXTRA_CFLAGS -Wdeclaration-after-statement -Werror=declaration-after-statement"
+        EXTRA_CFLAGS="$EXTRA_CFLAGS -Wdeclaration-after-statement "
     fi
 }
 

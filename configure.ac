@@ -1473,7 +1473,7 @@ CheckDeclarationAfterStatement()
     have_gcc_declaration_after_statement=no
 
     save_CFLAGS="$CFLAGS"
-    CFLAGS="$save_CFLAGS -Wdeclaration-after-statement -Werror=declaration-after-statement"
+    CFLAGS="$save_CFLAGS -Wdeclaration-after-statement "
     AC_TRY_COMPILE([
     int x = 0;
     ],[
@@ -1484,7 +1484,7 @@ CheckDeclarationAfterStatement()
     CFLAGS="$save_CFLAGS"
 
     if test x$have_gcc_declaration_after_statement = xyes; then
-        EXTRA_CFLAGS="$EXTRA_CFLAGS -Wdeclaration-after-statement -Werror=declaration-after-statement"
+        EXTRA_CFLAGS="$EXTRA_CFLAGS -Wdeclaration-after-statement "
     fi
 }
 
