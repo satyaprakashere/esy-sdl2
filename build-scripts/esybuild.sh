@@ -32,7 +32,7 @@ make_and_install() {
 # =====================================
 
 setup_macos() {
-  "${SOURCE_PATH}"/configure \
+  CFLAGS="-Wno-error=declaration-after-statement -Wno-error $CFLAGS" "${SOURCE_PATH}"/configure \
     --enable-shared=no \
     --enable-static=yes \
     --disable-video-x11 \
@@ -41,13 +41,13 @@ setup_macos() {
 }
 
 setup_windows() {
-  SHELL=bash CC=x86_64-w64-mingw32-gcc RC=x86_64-w64-mingw32-windres SDL_THREAD_PTHREAD=1 "${SOURCE_PATH}"/configure \
+  SHELL=bash CC=x86_64-w64-mingw32-gcc RC=x86_64-w64-mingw32-windres SDL_THREAD_PTHREAD=1 CFLAGS="-Wno-error=declaration-after-statement -Wno-error $CFLAGS" "${SOURCE_PATH}"/configure \
     --prefix="$INSTALL_PREFIX" \
     --enable-pthreads
 }
 
 setup_linux() {
-  CONFIG_SHELL=bash CFLAGS="-fPIC -fcommon" "${SOURCE_PATH}"/configure --prefix="$INSTALL_PREFIX"
+  CONFIG_SHELL=bash CFLAGS="-fPIC -fcommon" CFLAGS="-Wno-error=declaration-after-statement -Wno-error $CFLAGS" "${SOURCE_PATH}"/configure --prefix="$INSTALL_PREFIX"
 }
 
 while [ "$1" != "" ]; do
