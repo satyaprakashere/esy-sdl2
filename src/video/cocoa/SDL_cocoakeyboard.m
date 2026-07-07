@@ -537,12 +537,13 @@ Cocoa_SetTextInputRect(_THIS, SDL_Rect *rect)
 void
 Cocoa_HandleKeyEvent(_THIS, NSEvent *event)
 {
+    unsigned short scancode;
     SDL_VideoData *data = _this ? ((SDL_VideoData *) _this->driverdata) : NULL;
     if (!data) {
         return;  /* can happen when returning from fullscreen Space on shutdown */
     }
 
-    unsigned short scancode = [event keyCode];
+    scancode = [event keyCode];
     SDL_Scancode code;
 #if 0
     const char *text;

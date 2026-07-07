@@ -208,12 +208,13 @@ static void Cocoa_DispatchEvent(NSEvent *theEvent)
      * created, and if we don't ignore it, a window that has been created with
      * SDL_WINDOW_MINIMIZED will ~immediately be restored.
      */
+    SDL_VideoDevice *device;
     if (!seenFirstActivate) {
         seenFirstActivate = YES;
         return;
     }
 
-    SDL_VideoDevice *device = SDL_GetVideoDevice();
+    device = SDL_GetVideoDevice();
     if (device && device->windows) {
         SDL_Window *window = device->windows;
         int i;
